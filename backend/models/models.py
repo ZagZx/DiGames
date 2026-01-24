@@ -5,7 +5,6 @@ from typing import List, Optional
 engine = create_engine("sqlite:///banco.db", echo=True)
 db = Session(engine)
 
-
 class Base(DeclarativeBase):
     pass
 
