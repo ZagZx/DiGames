@@ -3,7 +3,7 @@
 import { X } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useContext, useEffect, useState } from "react";
-import Menu from "./Menu";
+import Menu from "./MenuIcon";
 import { MenuContext } from "@/context/MenuContext";
 
 
