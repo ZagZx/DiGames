@@ -30,4 +30,26 @@ public class Jogo {
     )
     private List<Genero> generos;
 
+    public long getId() { return this.id; }
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    public String getDescricao() {
+        return this.descricao;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public BigDecimal getPreco() {
+        return this.preco;
+    }
+
+    public List<Genero> getGeneros() {
+        return this.generos;
+    }
+
 }

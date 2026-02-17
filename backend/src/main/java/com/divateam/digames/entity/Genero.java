@@ -15,4 +15,12 @@ public class Genero {
 
     @ManyToMany(mappedBy = "generos")
     private List<Jogo> jogos;
+
+    public long getId() {
+        return this.id;
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
 }
