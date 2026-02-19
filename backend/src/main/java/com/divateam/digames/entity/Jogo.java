@@ -1,6 +1,7 @@
 package com.divateam.digames.entity;
 
 import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -8,7 +9,7 @@ import java.util.List;
 public class Jogo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(unique = true, nullable = false)
     private String nome;
@@ -30,26 +31,54 @@ public class Jogo {
     )
     private List<Genero> generos;
 
-    public long getId() { return this.id; }
+    public Jogo() {
+
+    }
+
+    public Jogo(String nome, String status, BigDecimal preco, String descricao, List<Genero> generos) {
+        this.nome = nome;
+        this.status = status;
+        this.preco = preco;
+        this.descricao = descricao;
+        this.generos = generos;
+    }
+
+    public Long getId() {
+        return this.id;
+    }
 
     public String getNome() {
         return this.nome;
     }
-
-    public String getDescricao() {
-        return this.descricao;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getStatus() {
         return this.status;
     }
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public BigDecimal getPreco() {
         return this.preco;
+    }
+    public void setPreco(BigDecimal preco) {
+        this.preco = preco;
+    }
+
+    public String getDescricao() {
+        return this.descricao;
+    }
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public List<Genero> getGeneros() {
         return this.generos;
     }
-
+    public void setGeneros(List<Genero> generos) {
+        this.generos = generos;
+    }
 }
