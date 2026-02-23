@@ -1,6 +1,6 @@
 package com.divateam.digames.service;
 
-import com.divateam.digames.dto.jogo.JogoRequestDto;
+import com.divateam.digames.dto.jogo.JogoRequest;
 import com.divateam.digames.entity.Genero;
 import com.divateam.digames.entity.Jogo;
 import com.divateam.digames.repository.GeneroRepository;
@@ -23,7 +23,7 @@ public class JogoService {
         return jogoRepository.findAll();
     }
 
-    public Jogo criar(JogoRequestDto dto) {
+    public Jogo criar(JogoRequest dto) {
         List<Genero> generos = generoRepository.findAllById(dto.generosId());
 
         Jogo jogo = new Jogo(

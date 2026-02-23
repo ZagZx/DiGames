@@ -1,9 +1,9 @@
 package com.divateam.digames.dto.genero;
 
-public class GeneroRequestDto {
+public class GeneroRequest {
     private String nome;
 
-    public GeneroRequestDto(String nome) {
+    public GeneroRequest(String nome) {
         this.nome = nome;
     }
 

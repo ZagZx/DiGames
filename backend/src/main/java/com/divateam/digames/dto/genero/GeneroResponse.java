@@ -2,11 +2,11 @@ package com.divateam.digames.dto.genero;
 
 import com.divateam.digames.entity.Genero;
 
-public class GeneroResponseDto {
+public class GeneroResponse {
     private Long id;
     private String nome;
 
-    public GeneroResponseDto(Genero genero) {
+    public GeneroResponse(Genero genero) {
         this.id = genero.getId();
         this.nome = genero.getNome();
     }

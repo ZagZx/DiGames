@@ -1,18 +1,13 @@
 package com.divateam.digames.controller;
 
-import com.divateam.digames.dto.jogo.JogoRequestDto;
-import com.divateam.digames.dto.jogo.JogoResponseDto;
-import com.divateam.digames.entity.Jogo;
+import com.divateam.digames.dto.jogo.JogoRequest;
+import com.divateam.digames.dto.jogo.JogoResponse;
 import com.divateam.digames.service.JogoService;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -25,9 +20,9 @@ public class JogoController {
     }
 
     @GetMapping
-    public ResponseEntity<List<JogoResponseDto>> listarJogos() {
+    public ResponseEntity<List<JogoResponse>> listarJogos() {
 //        List<Jogo> jogos = jogoService.listar();
-        List<JogoResponseDto> response = jogoService.listar().stream().map(JogoResponseDto::new).toList();
+        List<JogoResponse> response = jogoService.listar().stream().map(JogoResponse::new).toList();
 /*
         OU
         List<JogoResponseDto> response = jogos.stream().map(jogo -> new JogoResponseDto(jogo).toList();
@@ -41,8 +36,8 @@ public class JogoController {
     }
 
     @PostMapping
-    public ResponseEntity<JogoResponseDto> criarJogo(@RequestBody @Valid JogoRequestDto dto) {
-        JogoResponseDto response = new JogoResponseDto(jogoService.criar(dto));
+    public ResponseEntity<JogoResponse> criarJogo(@RequestBody @Valid JogoRequest jogoRequest) {
+        JogoResponse response = new JogoResponse(jogoService.criar(jogoRequest));
 
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
