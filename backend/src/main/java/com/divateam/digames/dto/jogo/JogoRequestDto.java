@@ -1,5 +1,6 @@
 package com.divateam.digames.dto.jogo;
 
+import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -15,7 +16,7 @@ public record JogoRequestDto(
         String status,
 
         @NotNull(message = "Preço não pode ser nulo")
-        @Min(message = "Preço não pode ser negativo", value = 0)
+        @DecimalMin(message = "Preço não pode ser negativo", value = "0.0")
         BigDecimal preco,
 
         String descricao,
