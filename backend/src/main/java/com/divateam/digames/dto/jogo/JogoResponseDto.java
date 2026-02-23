@@ -2,10 +2,20 @@ package com.divateam.digames.dto.jogo;
 
 import com.divateam.digames.dto.genero.GeneroResponseDto;
 import com.divateam.digames.entity.Jogo;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import java.math.BigDecimal;
 import java.util.List;
 
+@JsonPropertyOrder({
+        "id",
+        "nome",
+        "status",
+        "descricao",
+        "preco",
+        "generos"
+})
 public class JogoResponseDto {
     private Long id;
     private String nome;
