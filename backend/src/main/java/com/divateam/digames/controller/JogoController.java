@@ -22,23 +22,23 @@ public class JogoController {
     @GetMapping
     public ResponseEntity<List<JogoResponse>> listarJogos() {
 //        List<Jogo> jogos = jogoService.listar();
-        List<JogoResponse> response = jogoService.listar().stream().map(JogoResponse::new).toList();
+        List<JogoResponse> jogos = jogoService.listar().stream().map(JogoResponse::new).toList();
 /*
         OU
-        List<JogoResponseDto> response = jogos.stream().map(jogo -> new JogoResponseDto(jogo).toList();
+        List<JogoResponseDto> jogos = jogos.stream().map(jogo -> new JogoResponseDto(jogo).toList();
         OU
-        List<JogoResponseDto> response = new ArrayList<>();
+        List<JogoResponseDto> jogos = new ArrayList<>();
         for (Jogo jogo : jogos) {
-            response.add(new JogoResponseDto(jogo));
+            jogos.add(new JogoResponseDto(jogo));
         }
 */
-        return ResponseEntity.ok(response);
+        return ResponseEntity.ok(jogos);
     }
 
     @PostMapping
     public ResponseEntity<JogoResponse> criarJogo(@RequestBody @Valid JogoRequest jogoRequest) {
-        JogoResponse response = new JogoResponse(jogoService.criar(jogoRequest));
+        JogoResponse jogoResponse = new JogoResponse(jogoService.criar(jogoRequest));
 
-        return new ResponseEntity<>(response, HttpStatus.CREATED);
+        return new ResponseEntity<>(jogoResponse, HttpStatus.CREATED);
     }
 }

@@ -1,7 +1,12 @@
 package com.divateam.digames.dto.genero;
 
 import com.divateam.digames.entity.Genero;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+@JsonPropertyOrder({
+        "id",
+        "nome"
+})
 public class GeneroResponse {
     private Long id;
     private String nome;

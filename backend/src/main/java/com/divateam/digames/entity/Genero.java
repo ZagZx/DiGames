@@ -10,11 +10,19 @@ public class Genero {
     @GeneratedValue
     private long id;
 
-    @Column(nullable=false, length=30)
+    @Column(unique = true, nullable=false, length=30)
     private String nome;
 
     @ManyToMany(mappedBy = "generos")
     private List<Jogo> jogos;
+
+    public Genero() {
+
+    }
+
+    public Genero(String nome){
+        this.nome = nome;
+    }
 
     public long getId() {
         return this.id;

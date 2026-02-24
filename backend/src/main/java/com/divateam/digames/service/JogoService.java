@@ -23,14 +23,14 @@ public class JogoService {
         return jogoRepository.findAll();
     }
 
-    public Jogo criar(JogoRequest dto) {
-        List<Genero> generos = generoRepository.findAllById(dto.generosId());
+    public Jogo criar(JogoRequest jogoRequest) {
+        List<Genero> generos = generoRepository.findAllById(jogoRequest.generosId());
 
         Jogo jogo = new Jogo(
-                dto.nome(),
-                dto.status(),
-                dto.preco(),
-                dto.descricao(),
+                jogoRequest.nome(),
+                jogoRequest.status(),
+                jogoRequest.preco(),
+                jogoRequest.descricao(),
                 generos
         );
 
