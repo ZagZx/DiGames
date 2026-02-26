@@ -3,9 +3,9 @@ package com.divateam.digames.controller;
 import com.divateam.digames.dto.jogo.JogoRequest;
 import com.divateam.digames.dto.jogo.JogoResponse;
 import com.divateam.digames.service.JogoService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -42,7 +42,7 @@ public class JogoController {
     }
 
     @PostMapping
-    public ResponseEntity<JogoResponse> criarJogo(@RequestBody @Validated JogoRequest jogoRequest) {
+    public ResponseEntity<JogoResponse> criarJogo(@RequestBody @Valid JogoRequest jogoRequest) {
         JogoResponse jogoResponse = new JogoResponse(jogoService.criar(jogoRequest));
 
         return new ResponseEntity<>(jogoResponse, HttpStatus.CREATED);
