@@ -35,6 +35,10 @@ public class JogoService {
     }
 
     public Jogo criar(JogoRequest jogoRequest) {
+        if (jogoRepository.existsJogoByNome(jogoRequest.nome())) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Já existe um jogo com esse nome");
+        }
+
         List<Genero> generos = generoRepository.findAllById(jogoRequest.generosId());
 
         Jogo jogo = new Jogo(
