@@ -7,7 +7,7 @@ import java.util.List;
 
 public record JogoRequest(
         @NotBlank(message = "Nome não pode ser vazio ou nulo")
-        @Size(min = 3, message = "Nome deve ter pelo menos 3 caracteres")
+        @Size(min = 3, max = 255, message = "Nome deve ter pelo menos 3 caracteres e no máximo 255")
         String nome,
 
         @NotBlank(message = "Status não pode ser vazio ou nulo")
